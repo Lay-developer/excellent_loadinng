@@ -38,7 +38,7 @@ class ExcellentLoading {
   //tween color
   late List<Color> colors;
 
-  late Duration duration;
+  late Duration? duration;
 
   OverlayState? overlayState;
   OverlayEntry? entry;
@@ -103,8 +103,8 @@ class ExcellentLoading {
                       strokeWidth: _instance.strokeRaduis,
                       // value: _value,
                     ),
-                    const SizedBox(
-                      height: 15,
+                    SizedBox(
+                      height: status == null ? 0 : 15,
                     ),
                     status == null ? const SizedBox() : Text(status, style: const TextStyle(
                       fontSize: 12,
@@ -118,13 +118,17 @@ class ExcellentLoading {
       });
     _instance.entry = overlay;
     state?.insert(_instance.entry ?? _instance._emptyEntry());
-    Future.delayed(_instance.duration,() {
-      dismiss();
-    }).then((value) {
-      if(onDissmiss != null) {
-        onDissmiss();
-      }
-    });
+      if(_instance.duration != null) {
+        Future.delayed(_instance.duration ?? const Duration(seconds: 3),() {
+        dismiss();
+      }).then((value) {
+        if(onDissmiss != null) {
+          onDissmiss();
+        }
+      });
+    }else {
+      onDissmiss!();
+    }
   }
 
   static void dismiss() {

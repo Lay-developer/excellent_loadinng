@@ -21,7 +21,6 @@ this package is help you to redesign new loading
 
 
 ```dart
-//This package is use with GETX so you need to put it with GetController
 ExcellentLoading.instance
     ..backgroundColor = Colors.black;
 
