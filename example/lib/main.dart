@@ -6,8 +6,8 @@ void main() {
   runApp(MyApp());
 
   ExcellentLoading.instance
-  ..color = Colors.green
-  ..loadingType = LoadingType.inTop;
+    ..color = Colors.green
+    ..loadingType = LoadingType.inTop;
 }
 
 class MyApp extends StatelessWidget {
@@ -27,19 +27,15 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
+      body: Center(
           child: TextButton(
-            onPressed: () {
-             ExcellentLoading.show(
-              context, 
-              status: 'Please Wait',
-              onDissmiss: () {
-              print('object');
-             });
-            }, 
-            child: Text('Show')
-          )
-        ),
+              onPressed: () {
+                ExcellentLoading.show(context, status: 'Please Wait',
+                    onDissmiss: () {
+                  print('object');
+                });
+              },
+              child: Text('Show'))),
     );
   }
 }

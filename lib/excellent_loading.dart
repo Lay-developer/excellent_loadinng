@@ -2,16 +2,13 @@ library excellent_loading;
 
 import 'package:flutter/material.dart';
 
-enum LoadingType{
+enum LoadingType {
   inLeft,
   inRight,
   inTop,
 }
 
-
-
 class ExcellentLoading {
-
   //context
 
   //loading title
@@ -28,7 +25,7 @@ class ExcellentLoading {
 
   //border raduis
   late double borderRaduis;
-  
+
   //loading stroke
   late double strokeRaduis;
 
@@ -43,7 +40,6 @@ class ExcellentLoading {
   OverlayState? overlayState;
   OverlayEntry? entry;
 
-
   factory ExcellentLoading() => _instance;
   static final ExcellentLoading _instance = ExcellentLoading.internal();
 
@@ -54,25 +50,23 @@ class ExcellentLoading {
     color = Colors.blue;
     strokeRaduis = 0.75;
     duration = const Duration(seconds: 3);
-
   }
 
   static ExcellentLoading get instance => _instance;
 
-
-  static void show(BuildContext context,{String? status, VoidCallback? onDissmiss}) {
+  static void show(BuildContext context,
+      {String? status, VoidCallback? onDissmiss}) {
     OverlayState? state = Overlay.of(context);
-    OverlayEntry  overlay = OverlayEntry(builder: (BuildContext context) {
-        return Material(
-          color: Colors.transparent,
-          elevation: 0,
-          child: Container(
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
+    OverlayEntry overlay = OverlayEntry(builder: (BuildContext context) {
+      return Material(
+        color: Colors.transparent,
+        elevation: 0,
+        child: Container(
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
               color: Colors.transparent,
-              borderRadius: BorderRadius.circular(15)
-            ),
-            child: Container(
+              borderRadius: BorderRadius.circular(15)),
+          child: Container(
               width: 85,
               height: 85,
               alignment: Alignment.center,
@@ -80,53 +74,58 @@ class ExcellentLoading {
                 color: _instance.backgroundColor,
                 borderRadius: BorderRadius.circular(_instance.borderRaduis),
               ),
-              child: 
-                _instance.loadingType == LoadingType.inLeft || 
-                _instance.loadingType == LoadingType.inRight ? 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    _instance.loadingType == LoadingType.inLeft ? const SizedBox() : Text(status ?? ''),
-                    CircularProgressIndicator.adaptive(
-                      strokeWidth: _instance.strokeRaduis,
-                      value: _instance.value,
-                    ),
-                    _instance.loadingType == LoadingType.inRight ? const SizedBox() : Text(status ?? '')
-                  ],
-                ) : 
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CircularProgressIndicator(
-                      strokeWidth: _instance.strokeRaduis,
-                      // value: _value,
-                    ),
-                    SizedBox(
-                      height: status == null ? 0 : 15,
-                    ),
-                    status == null ? const SizedBox() : Text(status, style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold
-                    ),)
-                  ],
-                )
-            ),
-          ),
-        );
-      });
+              child: _instance.loadingType == LoadingType.inLeft ||
+                      _instance.loadingType == LoadingType.inRight
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _instance.loadingType == LoadingType.inLeft
+                            ? const SizedBox()
+                            : Text(status ?? ''),
+                        CircularProgressIndicator.adaptive(
+                          strokeWidth: _instance.strokeRaduis,
+                          value: _instance.value,
+                        ),
+                        _instance.loadingType == LoadingType.inRight
+                            ? const SizedBox()
+                            : Text(status ?? '')
+                      ],
+                    )
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CircularProgressIndicator(
+                          strokeWidth: _instance.strokeRaduis,
+                          // value: _value,
+                        ),
+                        SizedBox(
+                          height: status == null ? 0 : 15,
+                        ),
+                        status == null
+                            ? const SizedBox()
+                            : Text(
+                                status,
+                                style: const TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.bold),
+                              )
+                      ],
+                    )),
+        ),
+      );
+    });
     _instance.entry = overlay;
     state?.insert(_instance.entry ?? _instance._emptyEntry());
-      if(_instance.duration != null) {
-        Future.delayed(_instance.duration ?? const Duration(seconds: 3),() {
+    if (_instance.duration != null) {
+      Future.delayed(_instance.duration ?? const Duration(seconds: 3), () {
         dismiss();
       }).then((value) {
-        if(onDissmiss != null) {
+        if (onDissmiss != null) {
           onDissmiss();
         }
       });
-    }else {
+    } else {
       onDissmiss!();
     }
   }
@@ -135,15 +134,9 @@ class ExcellentLoading {
     _instance.entry?.remove();
   }
 
-
-
-
-
   OverlayEntry _emptyEntry() {
     return OverlayEntry(builder: (context) {
       return const SizedBox();
     });
   }
-  
 }
-
