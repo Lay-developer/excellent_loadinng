@@ -1,4 +1,3 @@
-import 'package:excellent_loading/controller/exc_loading_controller.dart';
 import 'package:excellent_loading/excellent_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
