@@ -49,7 +49,7 @@ class ExcellentLoading {
     borderRaduis = 15;
     color = Colors.blue;
     strokeRaduis = 0.75;
-    duration = const Duration(seconds: 3);
+    // duration = const Duration(seconds: 3);
   }
 
   static ExcellentLoading get instance => _instance;

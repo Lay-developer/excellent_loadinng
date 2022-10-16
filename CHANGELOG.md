@@ -8,3 +8,7 @@
 
 ## 0.0.3
 * update function
+
+## 0.0.4
+* update if there are no duration
+
