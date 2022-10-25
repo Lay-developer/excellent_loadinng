@@ -34,6 +34,9 @@ class Home extends StatelessWidget {
                     onDissmiss: () {
                   print('object');
                 });
+                // Future.delayed(Duration(seconds: 2), () {
+                //   ExcellentLoading.dismiss();
+                // });
               },
               child: Text('Show'))),
     );

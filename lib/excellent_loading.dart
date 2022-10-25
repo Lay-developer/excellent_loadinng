@@ -49,7 +49,7 @@ class ExcellentLoading {
     borderRaduis = 15;
     color = Colors.blue;
     strokeRaduis = 0.75;
-    // duration = const Duration(seconds: 3);
+    duration = null;
   }
 
   static ExcellentLoading get instance => _instance;
@@ -59,7 +59,7 @@ class ExcellentLoading {
     OverlayState? state = Overlay.of(context);
     OverlayEntry overlay = OverlayEntry(builder: (BuildContext context) {
       return Material(
-        color: Colors.transparent,
+        color: Colors.black.withOpacity(0.25),
         elevation: 0,
         child: Container(
           alignment: Alignment.center,

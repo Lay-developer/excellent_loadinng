@@ -12,3 +12,6 @@
 ## 0.0.4
 * update if there are no duration
 
+## 0.0.5
+* update status style
+
