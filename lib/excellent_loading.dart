@@ -126,7 +126,9 @@ class ExcellentLoading {
         }
       });
     } else {
-      onDissmiss!();
+      if(onDissmiss != null) {
+        onDissmiss();
+      }
     }
   }
 

@@ -15,3 +15,6 @@
 ## 0.0.5
 * update status style
 
+## 0.0.6
+* update null safety
+
