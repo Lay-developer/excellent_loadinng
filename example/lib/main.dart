@@ -30,15 +30,13 @@ class Home extends StatelessWidget {
       body: Center(
           child: TextButton(
               onPressed: () {
-                ExcellentLoading.show(context,
-                    onDissmiss: () {
+                ExcellentLoading.show(context, onDissmiss: () {
                   debugPrint('object');
                 });
                 Future.delayed(const Duration(seconds: 3), () {
                   ExcellentLoading.dismiss();
                 });
               },
-              
               child: const Text('Show'))),
     );
   }
