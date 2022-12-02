@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 
   ExcellentLoading.instance
     ..color = Colors.green
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return const GetMaterialApp(
       home: Home(),
     );
   }
@@ -30,15 +30,16 @@ class Home extends StatelessWidget {
       body: Center(
           child: TextButton(
               onPressed: () {
-                ExcellentLoading.show(context, status: 'Please Wait',
+                ExcellentLoading.show(context,
                     onDissmiss: () {
-                  print('object');
+                  debugPrint('object');
                 });
-                // Future.delayed(Duration(seconds: 2), () {
-                //   ExcellentLoading.dismiss();
-                // });
+                Future.delayed(const Duration(seconds: 3), () {
+                  ExcellentLoading.dismiss();
+                });
               },
-              child: Text('Show'))),
+              
+              child: const Text('Show'))),
     );
   }
 }

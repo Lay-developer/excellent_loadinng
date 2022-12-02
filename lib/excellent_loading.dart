@@ -1,5 +1,6 @@
 library excellent_loading;
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 enum LoadingType {
@@ -96,8 +97,8 @@ class ExcellentLoading {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        CircularProgressIndicator(
-                          strokeWidth: _instance.strokeRaduis,
+                        const CupertinoActivityIndicator(
+                          radius: 15,
                           // value: _value,
                         ),
                         SizedBox(
