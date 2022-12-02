@@ -18,3 +18,5 @@
 ## 0.0.6
 * update null safety
 
+## 0.0.7
+* update to ios style
