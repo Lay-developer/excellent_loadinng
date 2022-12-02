@@ -20,3 +20,6 @@
 
 ## 0.0.7
 * update to ios style
+
+## 0.0.8
+* update to ios style and format code
