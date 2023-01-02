@@ -24,7 +24,7 @@ ExcellentLoading.instance
     ..backgroundColor = Colors.black;
 
 //Show loading
-ExcellentLoading.show(context, status: 'Please Wait');
+ExcellentLoading.show();
 
 //Dissmiss loading 
 ExcellentLoading.dissmiss();
