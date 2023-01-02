@@ -19,7 +19,6 @@ this package is help you to redesign new loading
 
 ## Usage
 
-
 ```dart
 ExcellentLoading.instance
     ..backgroundColor = Colors.black;
@@ -31,7 +30,10 @@ ExcellentLoading.show(context, status: 'Please Wait');
 ExcellentLoading.dissmiss();
 ```
 
-
 ## Additional information
 
 for mor information kindly send me gmail layy.isme@gmail.com
+
+## Note
+
+I just create this loading for my organization and for myself because I don't wanna use any library. This library is base on Flutter Easyloading.
