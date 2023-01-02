@@ -21,7 +21,7 @@
 // IN THE SOFTWARE.
 
 import 'package:excellent_loading/animation.dart';
-import 'package:excellent_loading/excellent_loading.dart';
+import 'package:excellent_loading/flutter_excellentloading.dart';
 import 'package:excellent_loading/offset_animation.dart';
 import 'package:excellent_loading/opacity_animation.dart';
 import 'package:excellent_loading/scale_animation.dart';
@@ -80,6 +80,9 @@ class ExcellentLoadingTheme {
   static ExcellentLoadingAnimation get loadingAnimation {
     ExcellentLoadingAnimation animation;
     switch (ExcellentLoading.instance.animationStyle) {
+      case ExcellentLoadingAnimationStyle.custom:
+        animation = ExcellentLoading.instance.customAnimation!;
+        break;
       case ExcellentLoadingAnimationStyle.offset:
         animation = OffsetAnimation();
         break;
@@ -122,16 +125,14 @@ class ExcellentLoadingTheme {
               : AlignmentDirectional.center);
 
   /// display duration
-  static Duration get displayDuration =>
-      ExcellentLoading.instance.displayDuration;
+  static Duration get displayDuration => ExcellentLoading.instance.displayDuration;
 
   /// animation duration
   static Duration get animationDuration =>
       ExcellentLoading.instance.animationDuration;
 
   /// contentPadding of loading
-  static EdgeInsets get contentPadding =>
-      ExcellentLoading.instance.contentPadding;
+  static EdgeInsets get contentPadding => ExcellentLoading.instance.contentPadding;
 
   /// padding of status
   static EdgeInsets get textPadding => ExcellentLoading.instance.textPadding;

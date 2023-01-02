@@ -22,6 +22,7 @@
 
 import 'dart:async';
 import 'dart:math';
+
 import 'package:excellent_loading/container.dart';
 import 'package:excellent_loading/indicator.dart';
 import 'package:excellent_loading/loading.dart';
@@ -29,6 +30,7 @@ import 'package:excellent_loading/overlay_entry.dart';
 import 'package:excellent_loading/progress.dart';
 import 'package:excellent_loading/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:excellent_loading/animation.dart';
 
 /// loading style
 enum ExcellentLoadingStyle {
@@ -65,7 +67,10 @@ enum ExcellentLoadingMaskType {
 }
 
 /// loading indicator type. see [https://github.com/jogboms/flutter_spinkit#-showcase]
-enum ExcellentLoadingIndicatorType { android, ios }
+enum ExcellentLoadingIndicatorType {
+ ios,
+ android
+}
 
 /// loading status
 enum ExcellentLoadingStatus {
@@ -73,8 +78,7 @@ enum ExcellentLoadingStatus {
   dismiss,
 }
 
-typedef ExcellentLoadingStatusCallback = void Function(
-    ExcellentLoadingStatus status);
+typedef ExcellentLoadingStatusCallback = void Function(ExcellentLoadingStatus status);
 
 class ExcellentLoading {
   /// loading style, default [ExcellentLoadingStyle.dark].
@@ -122,7 +126,8 @@ class ExcellentLoading {
   /// animation duration of indicator, default 200ms.
   late Duration animationDuration;
 
-  /// loading custom animation, default null
+  /// loading custom animation, default null.
+  ExcellentLoadingAnimation? customAnimation;
 
   /// textStyle of status, default null.
   TextStyle? textStyle;
@@ -225,8 +230,7 @@ class ExcellentLoading {
     ExcellentLoadingMaskType? maskType,
     bool? dismissOnTap,
   }) {
-    Widget w =
-        indicator ?? (_instance.indicatorWidget ?? const LoadingIndicator());
+    Widget w = indicator ?? (_instance.indicatorWidget ?? const LoadingIndicator());
     return _instance._show(
       status: status,
       maskType: maskType,
@@ -422,6 +426,14 @@ class ExcellentLoading {
         'while mask type is custom, maskColor should not be null',
       );
     }
+
+    if (animationStyle == ExcellentLoadingAnimationStyle.custom) {
+      assert(
+        customAnimation != null,
+        'while animationStyle is custom, customAnimation should not be null',
+      );
+    }
+
     toastPosition ??= ExcellentLoadingToastPosition.center;
     bool animation = _w == null;
     _progressKey = null;

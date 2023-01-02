@@ -1,27 +1,52 @@
-import 'package:excellent_loading/excellent_loading.dart';
-import 'package:excellent_loading/overlay_entry.dart';
+// The MIT License (MIT)
+//
+// Copyright (c) 2020 nslogx
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+import 'package:excellent_loading/flutter_excellentloading.dart';
 import 'package:flutter/material.dart';
+
+import './overlay_entry.dart';
 
 class FlutterExcellentLoading extends StatefulWidget {
   final Widget? child;
-  const FlutterExcellentLoading({super.key, required this.child})
-      : assert(child != null);
+
+  const FlutterExcellentLoading({
+    Key? key,
+    required this.child,
+  })  : assert(child != null),
+        super(key: key);
 
   @override
-  State<FlutterExcellentLoading> createState() =>
-      _FlutterExcellentLoadingState();
+  FlutterExcellentLoadingState createState() => FlutterExcellentLoadingState();
 }
 
-class _FlutterExcellentLoadingState extends State<FlutterExcellentLoading> {
+class FlutterExcellentLoadingState extends State<FlutterExcellentLoading> {
   late ExcellentLoadingOverlayEntry _overlayEntry;
+
   @override
   void initState() {
+    super.initState();
     _overlayEntry = ExcellentLoadingOverlayEntry(
-      builderx: (BuildContext context) =>
-          ExcellentLoading.instance.w ?? Container(),
+      builderx: (BuildContext context) => ExcellentLoading.instance.w ?? Container(),
     );
     ExcellentLoading.instance.overlayEntry = _overlayEntry;
-    super.initState();
   }
 
   @override

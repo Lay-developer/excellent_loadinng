@@ -20,10 +20,10 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-import 'package:excellent_loading/excellent_loading.dart';
-import 'package:excellent_loading/theme.dart';
+import 'package:excellent_loading/flutter_excellentloading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../theme.dart';
 
 class LoadingIndicator extends StatefulWidget {
   const LoadingIndicator({
@@ -53,12 +53,12 @@ class LoadingIndicatorState extends State<LoadingIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    double width = _size;
+    double _width = _size;
     switch (ExcellentLoadingTheme.indicatorType) {
       case ExcellentLoadingIndicatorType.android:
         _indicator = CircularProgressIndicator(
-          color: _indicatorColor,
           strokeWidth: 0.8,
+          color: _indicatorColor,
         );
         break;
       case ExcellentLoadingIndicatorType.ios:
@@ -70,14 +70,14 @@ class LoadingIndicatorState extends State<LoadingIndicator> {
       default:
         _indicator = CupertinoActivityIndicator(
           color: _indicatorColor,
-          radius: 10,
+          radius: 15,
         );
         break;
     }
 
     return Container(
       constraints: BoxConstraints(
-        maxWidth: width,
+        maxWidth: _width,
       ),
       child: _indicator,
     );

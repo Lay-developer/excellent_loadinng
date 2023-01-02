@@ -33,3 +33,7 @@
 ## 0.0.9
 
 * update to get more feature and improve performent
+
+## 1.0.0
+
+* update library performance

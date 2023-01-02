@@ -22,9 +22,10 @@
 
 import 'dart:async';
 import 'package:excellent_loading/excellent_loading.dart';
-import 'package:excellent_loading/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+
+import '../theme.dart';
 
 //https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0
 T? _ambiguate<T>(T? value) => value;
@@ -33,9 +34,9 @@ class ExcellentLoadingContainer extends StatefulWidget {
   final Widget? indicator;
   final String? status;
   final bool? dismissOnTap;
+  final ExcellentLoadingToastPosition toastPosition;
+  final ExcellentLoadingMaskType maskType;
   final Completer<void>? completer;
-  final ExcellentLoadingToastPosition? toastPosition;
-  final ExcellentLoadingMaskType? maskType;
   final bool animation;
 
   const ExcellentLoadingContainer({
@@ -43,15 +44,14 @@ class ExcellentLoadingContainer extends StatefulWidget {
     this.indicator,
     this.status,
     this.dismissOnTap,
+    required this.toastPosition,
+    required this.maskType,
     this.completer,
-    this.toastPosition,
-    this.maskType,
     this.animation = true,
   }) : super(key: key);
 
   @override
-  ExcellentLoadingContainerState createState() =>
-      ExcellentLoadingContainerState();
+  ExcellentLoadingContainerState createState() => ExcellentLoadingContainerState();
 }
 
 class ExcellentLoadingContainerState extends State<ExcellentLoadingContainer>
@@ -79,9 +79,10 @@ class ExcellentLoadingContainerState extends State<ExcellentLoadingContainer>
         widget.dismissOnTap ?? (ExcellentLoadingTheme.dismissOnTap ?? false);
     _ignoring =
         _dismissOnTap ? false : ExcellentLoadingTheme.ignoring(widget.maskType);
+    _maskColor = ExcellentLoadingTheme.maskColor(widget.maskType);
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 200),
+      duration: ExcellentLoadingTheme.animationDuration,
     )..addStatusListener((status) {
         bool isCompleted = widget.completer?.isCompleted ?? false;
         if (status == AnimationStatus.completed && !isCompleted) {
@@ -102,10 +103,10 @@ class ExcellentLoadingContainerState extends State<ExcellentLoadingContainer>
       Completer<void> completer = Completer<void>();
       _ambiguate(SchedulerBinding.instance)!.addPostFrameCallback((_) =>
           completer
-              .complete(_animationController.forward(from: animation ? 1 : 1)));
+              .complete(_animationController.forward(from: animation ? 0 : 1)));
       return completer.future;
     } else {
-      return _animationController.forward(from: animation ? 1 : 1);
+      return _animationController.forward(from: animation ? 0 : 1);
     }
   }
 
@@ -114,10 +115,10 @@ class ExcellentLoadingContainerState extends State<ExcellentLoadingContainer>
       Completer<void> completer = Completer<void>();
       _ambiguate(SchedulerBinding.instance)!.addPostFrameCallback((_) =>
           completer
-              .complete(_animationController.reverse(from: animation ? 1 : 1)));
+              .complete(_animationController.reverse(from: animation ? 1 : 0)));
       return completer.future;
     } else {
-      return _animationController.reverse(from: animation ? 1 : 1);
+      return _animationController.reverse(from: animation ? 1 : 0);
     }
   }
 

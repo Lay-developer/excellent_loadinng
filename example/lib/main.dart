@@ -1,7 +1,7 @@
-import 'package:excellent_loading/excellent_loading.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:excellent_loading/flutter_excellentloading.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,9 @@ void main() {
     ..loadingStyle = ExcellentLoadingStyle.custom
     ..radius = 15
     ..backgroundColor = Colors.white
-    ..indicatorColor = Colors.blue
+    ..indicatorColor = Colors.black
     ..boxShadow = []
-    ..contentPadding = EdgeInsets.all(20)
+    ..contentPadding = const EdgeInsets.all(20)
     ..textColor = Colors.black;
 }
 
@@ -46,6 +46,7 @@ class Home extends StatelessWidget {
                 });
               },
               child: const Text('Show'))),
+      
     );
   }
 }
