@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:excellent_loading/flutter_excellentloading.dart';
@@ -36,9 +35,8 @@ class Home extends StatelessWidget {
               child: TextButton(
                   onPressed: () {
                     ExcellentLoading.show(
-                      // status: 'Hello',
-                      maskType: ExcellentLoadingMaskType.black
-                    );
+                        // status: 'Hello',
+                        maskType: ExcellentLoadingMaskType.black);
                     Future.delayed(const Duration(seconds: 3), () {
                       ExcellentLoading.dismiss();
                     });
@@ -46,7 +44,6 @@ class Home extends StatelessWidget {
                   child: const Text('Show'))),
         ],
       ),
-      
     );
   }
 }

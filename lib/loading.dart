@@ -44,7 +44,8 @@ class FlutterExcellentLoadingState extends State<FlutterExcellentLoading> {
   void initState() {
     super.initState();
     _overlayEntry = ExcellentLoadingOverlayEntry(
-      builderx: (BuildContext context) => ExcellentLoading.instance.w ?? Container(),
+      builderx: (BuildContext context) =>
+          ExcellentLoading.instance.w ?? Container(),
     );
     ExcellentLoading.instance.overlayEntry = _overlayEntry;
   }

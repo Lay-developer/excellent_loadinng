@@ -67,10 +67,7 @@ enum ExcellentLoadingMaskType {
 }
 
 /// loading indicator type. see [https://github.com/jogboms/flutter_spinkit#-showcase]
-enum ExcellentLoadingIndicatorType {
- ios,
- android
-}
+enum ExcellentLoadingIndicatorType { ios, android }
 
 /// loading status
 enum ExcellentLoadingStatus {
@@ -78,7 +75,8 @@ enum ExcellentLoadingStatus {
   dismiss,
 }
 
-typedef ExcellentLoadingStatusCallback = void Function(ExcellentLoadingStatus status);
+typedef ExcellentLoadingStatusCallback = void Function(
+    ExcellentLoadingStatus status);
 
 class ExcellentLoading {
   /// loading style, default [ExcellentLoadingStyle.dark].
@@ -230,7 +228,8 @@ class ExcellentLoading {
     ExcellentLoadingMaskType? maskType,
     bool? dismissOnTap,
   }) {
-    Widget w = indicator ?? (_instance.indicatorWidget ?? const LoadingIndicator());
+    Widget w =
+        indicator ?? (_instance.indicatorWidget ?? const LoadingIndicator());
     return _instance._show(
       status: status,
       maskType: maskType,

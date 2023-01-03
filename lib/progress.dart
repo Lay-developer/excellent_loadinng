@@ -35,7 +35,8 @@ class ExcellentLoadingProgress extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  ExcellentLoadingProgressState createState() => ExcellentLoadingProgressState();
+  ExcellentLoadingProgressState createState() =>
+      ExcellentLoadingProgressState();
 }
 
 class ExcellentLoadingProgressState extends State<ExcellentLoadingProgress> {

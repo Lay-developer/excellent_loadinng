@@ -125,14 +125,16 @@ class ExcellentLoadingTheme {
               : AlignmentDirectional.center);
 
   /// display duration
-  static Duration get displayDuration => ExcellentLoading.instance.displayDuration;
+  static Duration get displayDuration =>
+      ExcellentLoading.instance.displayDuration;
 
   /// animation duration
   static Duration get animationDuration =>
       ExcellentLoading.instance.animationDuration;
 
   /// contentPadding of loading
-  static EdgeInsets get contentPadding => ExcellentLoading.instance.contentPadding;
+  static EdgeInsets get contentPadding =>
+      ExcellentLoading.instance.contentPadding;
 
   /// padding of status
   static EdgeInsets get textPadding => ExcellentLoading.instance.textPadding;

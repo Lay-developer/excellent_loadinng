@@ -51,7 +51,8 @@ class ExcellentLoadingContainer extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  ExcellentLoadingContainerState createState() => ExcellentLoadingContainerState();
+  ExcellentLoadingContainerState createState() =>
+      ExcellentLoadingContainerState();
 }
 
 class ExcellentLoadingContainerState extends State<ExcellentLoadingContainer>
