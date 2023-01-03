@@ -1,7 +1,7 @@
 name: excellent_loading
 description: This package is use to show loading with awesome animation and it is only for use in my workplace. This package is just publish for testing.
 version: 1.0.0
-homepage: https://github.com/Lay-developer/
+homepage: https://github.com/layisme/
 
 environment:
   sdk: '>=2.18.2 <3.0.0'
@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_spinkit: ^5.1.0
 
 dev_dependencies:
   flutter_test:
