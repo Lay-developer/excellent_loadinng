@@ -37,3 +37,7 @@
 ## 1.0.0
 
 * update library performance
+
+## 1.0.1
+
+* update homepage
