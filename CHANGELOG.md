@@ -41,3 +41,7 @@
 ## 1.0.1
 
 * update homepage
+
+# 1.0.2
+
+* update to set dynamic stroke of indicator for android style & indicator size for ios style

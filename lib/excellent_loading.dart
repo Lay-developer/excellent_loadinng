@@ -106,6 +106,9 @@ class ExcellentLoading {
   /// size of indicator, default 40.0.
   late double indicatorSize;
 
+  /// stroke of indicator
+  late double indicatorStroke;
+
   /// radius of loading, default 5.0.
   late double radius;
 
@@ -191,7 +194,8 @@ class ExcellentLoading {
     toastPosition = ExcellentLoadingToastPosition.center;
     animationStyle = ExcellentLoadingAnimationStyle.opacity;
     textAlign = TextAlign.center;
-    indicatorSize = 40.0;
+    indicatorSize = 15.0;
+    indicatorStroke = 0.8;
     radius = 5.0;
     fontSize = 15.0;
     progressWidth = 2.0;

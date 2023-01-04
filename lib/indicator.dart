@@ -36,6 +36,7 @@ class LoadingIndicator extends StatefulWidget {
 
 class LoadingIndicatorState extends State<LoadingIndicator> {
   final double _size = ExcellentLoadingTheme.indicatorSize;
+  final double _indicatorStroke = ExcellentLoadingTheme.indicatorStroke;
 
   /// indicator color of loading
   final Color _indicatorColor = ExcellentLoadingTheme.indicatorColor;
@@ -57,14 +58,14 @@ class LoadingIndicatorState extends State<LoadingIndicator> {
     switch (ExcellentLoadingTheme.indicatorType) {
       case ExcellentLoadingIndicatorType.android:
         _indicator = CircularProgressIndicator(
-          strokeWidth: 0.8,
+          strokeWidth: _indicatorStroke,
           color: _indicatorColor,
         );
         break;
       case ExcellentLoadingIndicatorType.ios:
         _indicator = CupertinoActivityIndicator(
           color: _indicatorColor,
-          radius: 15,
+          radius: _size,
         );
         break;
       default:

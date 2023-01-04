@@ -43,6 +43,8 @@ class ExcellentLoadingTheme {
           : ExcellentLoading.instance.loadingStyle == ExcellentLoadingStyle.dark
               ? Colors.white
               : Colors.black;
+  
+  static double get indicatorStroke =>ExcellentLoading.instance.loadingStyle ==  ExcellentLoadingStyle.custom ? ExcellentLoading.instance.indicatorStroke : 0.8;
 
   /// background color of loading
   static Color get backgroundColor =>
