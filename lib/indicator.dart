@@ -65,7 +65,7 @@ class LoadingIndicatorState extends State<LoadingIndicator> {
       case ExcellentLoadingIndicatorType.ios:
         _indicator = CupertinoActivityIndicator(
           color: _indicatorColor,
-          radius: _size,
+          radius: 15,
         );
         break;
       default:

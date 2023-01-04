@@ -194,7 +194,7 @@ class ExcellentLoading {
     toastPosition = ExcellentLoadingToastPosition.center;
     animationStyle = ExcellentLoadingAnimationStyle.opacity;
     textAlign = TextAlign.center;
-    indicatorSize = 15.0;
+    indicatorSize = 40;
     indicatorStroke = 0.8;
     radius = 5.0;
     fontSize = 15.0;

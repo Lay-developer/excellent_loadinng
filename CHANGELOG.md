@@ -1,3 +1,5 @@
+# if there are any update we will provide document here
+
 ## 0.0.1
 
 * Create function show and dissmiss.
@@ -42,6 +44,10 @@
 
 * update homepage
 
-# 1.0.2
+## 1.0.2
 
 * update to set dynamic stroke of indicator for android style & indicator size for ios style
+
+## 1.0.3
+
+* improvement
